@@ -1,56 +1,55 @@
 body, html {
-    margin: 0;
-    padding: 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  background: #252932;
+}
+
+header video {
+  width: 70%; /* El video ocupa el 70% del ancho del encabezado */
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo {
+  width: 30%; /* La imagen ocupa el 30% del ancho del encabezado */
+  margin-left: 20px;
+}
+
+.logo img {
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: auto; /* Ajusta la altura de la imagen automáticamente para mantener la relación de aspecto */
+  object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor del encabezado manteniendo la relación de aspecto */
+}
+
+.logo h1 {
+  margin: 0;
+  margin-left: 10px;
+  color: white;
+}
+
+/* Estilos para pantallas más pequeñas (opcional) */
+@media screen and (max-width: 768px) {
   header {
-    display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
-    align-items: center; /* Alinea los elementos verticalmente en el centro del encabezado */
-    width: 100%;
-    height: 20vh;
-    overflow: hidden;
-    background: #252932;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
   }
-  
+
   header video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* El video ocupa todo el ancho del encabezado en dispositivos móviles */
   }
-  
+
   .logo {
-    margin-left: 20px; /* Ajusta el margen izquierdo de la imagen para separarla del video */
+    width: 100%; /* La imagen ocupa todo el ancho del encabezado en dispositivos móviles */
+    margin-left: 0;
+    margin-bottom: 10px;
   }
-  
-  .logo img {
-    height: 100%; /* Ajusta la altura de la imagen para que tenga la misma altura que el encabezado */
-  }
-  
-  .logo h1 {
-    margin: 0;
-    margin-left: 10px; /* Ajusta el margen izquierdo del texto para separarlo de la imagen */
-    color: white; /* Ajusta el color del texto para que sea visible */
-  }
-  
-  /* Estilos para pantallas más pequeñas (opcional) */
-  @media screen and (max-width: 768px) {
-    header {
-      height: 30vh;
-      flex-direction: column; /* Cambia la dirección del flexbox a columna en dispositivos móviles */
-      justify-content: center; /* Alinea los elementos verticalmente en el centro del encabezado en dispositivos móviles */
-    }
-  
-    .logo {
-      margin-left: 0; /* Elimina el margen izquierdo de la imagen en dispositivos móviles */
-      margin-bottom: 10px; /* Ajusta el margen inferior de la imagen para separarla del texto en dispositivos móviles */
-    }
-  
-    .logo img {
-      height: auto; /* Ajusta la altura de la imagen a su tamaño original en dispositivos móviles */
-      width: 100%; /* Ajusta el ancho de la imagen para que ocupe todo el ancho del encabezado en dispositivos móviles */
-    }
-  
-    .logo h1 {
-      margin-left: 0; /* Elimina el margen izquierdo del texto en dispositivos móviles */
-    }
-  }
+}
