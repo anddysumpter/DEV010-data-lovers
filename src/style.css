@@ -1,53 +1,84 @@
 body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 header {
   display: flex;
   align-items: center;
+  position: relative;
   width: 100%;
-  height: 20vh;
+  height: 18vh; /* El encabezado ocupa el 20% del alto de la ventana */
   overflow: hidden;
-  background: #252932;
+  background: #FFCC01 /* Fondo amarillo */
 }
 
-header video {
-  width: 70%; /* El video ocupa el 70% del ancho del encabezado */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ajusta el video para que cubra toda la ventana manteniendo la relación de aspecto */
+  z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
 }
 
 .logo {
-  flex-grow: 1; /* Permite que el contenedor de la imagen ocupe el espacio restante */
-}
-
-.logo img {
-  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-  height: 100%; /* La imagen ocupa todo el largo del contenedor */
+  width: 100%; /* La imagen ocupa el 30% del ancho del encabezado */
+  height: 100%; /* La imagen ocupa toda la altura del encabezado */
   object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor del encabezado manteniendo la relación de aspecto */
 }
 
-.logo h1 {
-  margin: 0;
-  margin-left: 10px;
+h1 {
   color: white;
+  margin-left: 10px;
+  font-size: 24px;
 }
 
-/* Estilos para pantallas más pequeñas (opcional) */
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2258ec; /* Fondo gris claro */
+  padding: 10px;
+  width: 50%; /* Ancho del 100% del contenedor padre */
+}
+
+/* Estilos para el campo de entrada de texto */
+.search-container input {
+  padding: 10px; /* Espaciado interno del campo de entrada */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1; /* El campo de entrada tomará el espacio disponible en el contenedor */
+  margin-right: 5px;
+}
+
+/* Estilos para el botón de búsqueda */
+.search-container button {
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none;
+  background: yellow;/* Fondo azul */
+  
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Ajustar estilos para dispositivos móviles (opcional) */
 @media screen and (max-width: 768px) {
-  header {
-    height: 30vh;
+  .search-container {
     flex-direction: column;
-    justify-content: center;
+    align-items: stretch;
   }
 
-  header video {
-    width: 100%; /* El video ocupa todo el ancho del encabezado en dispositivos móviles */
-  }
-
-  .logo {
-    width: 100%; /* La imagen ocupa todo el ancho del encabezado en dispositivos móviles */
+  .search-container input {
     margin-bottom: 10px;
   }
 }
