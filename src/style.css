@@ -19,13 +19,12 @@ header video {
 }
 
 .logo {
-  width: 30%; /* La imagen ocupa el 30% del ancho del encabezado */
-  margin-left: 20px;
+  flex-grow: 1; /* Permite que el contenedor de la imagen ocupe el espacio restante */
 }
 
 .logo img {
   width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-  height: auto; /* Ajusta la altura de la imagen automáticamente para mantener la relación de aspecto */
+  height: 100%; /* La imagen ocupa todo el largo del contenedor */
   object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor del encabezado manteniendo la relación de aspecto */
 }
 
@@ -49,7 +48,6 @@ header video {
 
   .logo {
     width: 100%; /* La imagen ocupa todo el ancho del encabezado en dispositivos móviles */
-    margin-left: 0;
     margin-bottom: 10px;
   }
 }
