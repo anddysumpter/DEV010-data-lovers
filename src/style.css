@@ -1,3 +1,4 @@
+/* Estilos para el fondo de la página */
 body, html {
   margin: 0;
   padding: 0;
@@ -9,9 +10,9 @@ header {
   align-items: center;
   position: relative;
   width: 100%;
-  height: 18vh; /* El encabezado ocupa el 20% del alto de la ventana */
+  height: 18vh; 
   overflow: hidden;
-  background: #FFCC01 /* Fondo amarillo */
+  background: #FFCC01;
 }
 
 #background-video {
@@ -59,16 +60,182 @@ h1 {
   border-radius: 4px;
   flex: 1; /* El campo de entrada tomará el espacio disponible en el contenedor */
   margin-right: 5px;
+  font-weight: bold; 
 }
 
 /* Estilos para el botón de búsqueda */
 .search-container button {
-  padding: 10px 20px; /* Espaciado interno del botón */
+  padding: 20px 30px; /* Espaciado interno del botón */
   border: none;
-  background: yellow;/* Fondo azul */
-  
+  background-color: none;
+   /* Fondo amarillo */
+  background-image: url('pokebola.png'); /* Agregamos la imagen como fondo del botón */
+  background-size: contain; /* Ajustamos el tamaño de la imagen para que quepa dentro del botón */
+  background-repeat: no-repeat; /* Evitamos que la imagen se repita */
+  background-position: center; /* Centramos la imagen dentro del botón */
   border-radius: 4px;
+  cursor: pointer; 
+}
+
+:root {
+  --clr-black: #1c1c1c;
+  --clr-gray: #ececec;
+  --clr-white: #f7f7f7;
+
+  --type-normal: #A8A878;
+  --type-fire: #F08030;
+  --type-water: #6890F0;
+  --type-grass: #78C850;
+  --type-electric: #F8D030;
+  --type-ice: #98D8D8;
+  --type-fighting: #C03028;
+  --type-poison: #A040A0;
+  --type-ground: #E0C068;
+  --type-flying: #A890F0;
+  --type-psychic: #F85888;
+  --type-bug: #A8B820;
+  --type-rock: #B8A038;
+  --type-ghost: #705898;
+  --type-dark: #705848;
+  --type-dragon: #7038F8;
+  --type-steel: #B8B8D0;
+  --type-fairy: #F0B6BC;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  padding-inline: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.btn-header {
+  background-color: var(--clr-gray);
+  padding: .5rem;
+  border-radius: 100vmax;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .25);
+  transition: .2s;
+}
+
+.btn-header:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+}
+
+.normal {
+  background-color: var(--type-normal);
+  color: var(--clr-black);
+}
+
+.fire {
+  background-color: var(--type-fire);
+  color: var(--clr-black);
+}
+
+.water {
+  background-color: var(--type-water);
+  color: var(--clr-white);
+}
+
+.grass {
+  background-color: var(--type-grass);
+  color: var(--clr-black);
+}
+
+.electric {
+  background-color: var(--type-electric);
+  color: var(--clr-black);
+}
+
+.ice {
+  background-color: var(--type-ice);
+  color: var(--clr-black);
+}
+
+.fighting {
+  background-color: var(--type-fighting);
+  color: var(--clr-white);
+}
+
+.poison {
+  background-color: var(--type-poison);
+  color: var(--clr-white);
+}
+
+.ground {
+  background-color: var(--type-ground);
+  color: var(--clr-black);
+}
+
+.flying {
+  background-color: var(--type-flying);
+  color: var(--clr-black);
+}
+
+.psychic {
+  background-color: var(--type-psychic);
+  color: var(--clr-black);
+}
+
+.bug {
+  background-color: var(--type-bug);
+  color: var(--clr-black);
+}
+
+.rock {
+  background-color: var(--type-rock);
+  color: var(--clr-black);
+}
+
+.ghost {
+  background-color: var(--type-ghost);
+  color: var(--clr-white);
+}
+
+.dark {
+  background-color: var(--type-dark);
+  color: var(--clr-white);
+}
+
+.dragon {
+  background-color: var(--type-dragon);
+  color: var(--clr-white);
+}
+
+.steel {
+  background-color: var(--type-steel);
+  color: var(--clr-black);
+}
+
+.fairy {
+  background-color: var(--type-fairy);
+  color: var(--clr-black);
+}
+
+/* Estilos para las tarjetas de los Pokémon */
+.pokemon-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
 }
 
 /* Ajustar estilos para dispositivos móviles (opcional) */

@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div id="logo-container">
-        <img src="poke.png" alt="Pokesearch" class="logo">
-        
-      </div>
-    </header>
-    <div class="search-container">
-      <input type="text" placeholder="Buscar...">
-      <button>Buscar</button>
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video muted onloadedmetadata="this.muted=true" autoplay loop id="background-video">
+    <source src="header.mp4">
+  </video>
+  <header>
+    <div id="logo-container">
+      <img src="poke.png" alt="Pokesearch" class="logo">
     </div>
+   
+  </header>
+  <main id="root">
+    
+  </main>
+  
+  <div class="search-container">
+    <input type="text" placeholder="Escribe el Nombre del Pokémon">
+    <button type="submit"></button>
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+        <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li> 
+        <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
+        <li class="nav-item"><button class="btn btn-header fire" id="fire">Fire</button></li>
+        <li class="nav-item"><button class="btn btn-header water" id="water">Water</button></li>
+        <li class="nav-item"><button class="btn btn-header grass" id="grass">Grass</button></li>
+        <li class="nav-item"><button class="btn btn-header electric" id="electric">Electric</button></li>
+        <li class="nav-item"><button class="btn btn-header ice" id="ice">Ice</button></li>
+        <li class="nav-item"><button class="btn btn-header fighting" id="fighting">Fighting</button></li>
+        <li class="nav-item"><button class="btn btn-header poison" id="poison">Poison</button></li>
+        <li class="nav-item"><button class="btn btn-header ground" id="ground">Ground</button></li>
+        <li class="nav-item"><button class="btn btn-header flying" id="flying">Flying</button></li>
+        <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psychic</button></li>
+        <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
+        <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
+        <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
+        <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
+        <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragon</button></li>
+        <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
+        <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
+    </ul>
+</nav>
 
-    <video muted onloadedmetadata="this.muted=true" autoplay loop id="background-video">
-      <source src="header.mp4">
-    </video>
+  
 
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+  
+  
+  <script src="data.js" type="module"></script>
+  <script src="main.js" type="module"></script>
+</body>
 </html>
