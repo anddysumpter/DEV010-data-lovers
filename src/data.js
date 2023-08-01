@@ -1,12 +1,18 @@
-// data.js
-import pokemonData from './data/pokemon.js';
-
-// Función para obtener todos los Pokémon
-export function getAllPokemon() {
-  return pokemonData.pokemon;
-}
-
-// Función para filtrar los Pokémon por tipo o nombre
-export function filterData(pokemonList, value) {
-  return pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(value) || pokemon.type.includes(value));
-}
+export const getPokemonByType = (arrayOfSelectedPokemonType, pokemonList) => {
+  let pokemonFilteredList = null;
+  
+  for (let indexCondition = 0; indexCondition < arrayOfSelectedPokemonType.length; indexCondition++) {
+    pokemonFilteredList = pokemonList.filter(function (objeto) { 
+      const objetoConsultado = objeto.type.some(function (item) {
+        if (item.indexOf(arrayOfSelectedPokemonType[indexCondition]) >= 0) {
+          return true;
+        }
+        return false;
+      });
+      return objetoConsultado;
+    });
+    pokemonList = pokemonFilteredList;
+  }
+  
+  return pokemonFilteredList;
+};

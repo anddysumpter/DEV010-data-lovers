@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Data Lovers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,41 +16,36 @@
     </div>
    
   </header>
-  <main id="root">
-    
+  <main>
+    <div class="search-container">
+      <input type="text" placeholder="Escribe el Nombre del Pokémon">
+      <button type="submit"></button>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><button class="btn-header active" id="view-all">View all</button></li>
+        <li class="nav-item"><button class="btn-header normal" id="normal">Normal</button></li>
+        <li class="nav-item"><button class="btn-header fire" id="fire">Fire</button></li>
+        <li class="nav-item"><button class="btn-header water" id="water">Water</button></li>
+        <li class="nav-item"><button class="btn-header grass" id="grass">Grass</button></li>
+        <li class="nav-item"><button class="btn-header electric" id="electric">Electric</button></li>
+        <li class="nav-item"><button class="btn-header ice" id="ice">Ice</button></li>
+        <li class="nav-item"><button class="btn-header fighting" id="fighting">Fighting</button></li>
+        <li class="nav-item"><button class="btn-header poison" id="poison">Poison</button></li>
+        <li class="nav-item"><button class="btn-header ground" id="ground">Ground</button></li>
+        <li class="nav-item"><button class="btn-header flying" id="flying">Flying</button></li>
+        <li class="nav-item"><button class="btn-header psychic" id="psychic">Psychic</button></li>
+        <li class="nav-item"><button class="btn-header bug" id="bug">Bug</button></li>
+        <li class="nav-item"><button class="btn-header rock" id="rock">Rock</button></li>
+        <li class="nav-item"><button class="btn-header ghost" id="ghost">Ghost</button></li>
+        <li class="nav-item"><button class="btn-header dark" id="dark">Dark</button></li>
+        <li class="nav-item"><button class="btn-header dragon" id="dragon">Dragon</button></li>
+        <li class="nav-item"><button class="btn-header steel" id="steel">Steel</button></li>
+        <li class="nav-item"><button class="btn-header fairy" id="fairy">Fairy</button></li>
+      </ul>
+    </nav>
+    <div id="root"></div>
   </main>
-  
-  <div class="search-container">
-    <input type="text" placeholder="Escribe el Nombre del Pokémon">
-    <button type="submit"></button>
-  </div>
-  <nav class="nav">
-    <ul class="nav-list">
-        <li class="nav-item"><button class="btn btn-header" id="view-all">View all</button></li> 
-        <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
-        <li class="nav-item"><button class="btn btn-header fire" id="fire">Fire</button></li>
-        <li class="nav-item"><button class="btn btn-header water" id="water">Water</button></li>
-        <li class="nav-item"><button class="btn btn-header grass" id="grass">Grass</button></li>
-        <li class="nav-item"><button class="btn btn-header electric" id="electric">Electric</button></li>
-        <li class="nav-item"><button class="btn btn-header ice" id="ice">Ice</button></li>
-        <li class="nav-item"><button class="btn btn-header fighting" id="fighting">Fighting</button></li>
-        <li class="nav-item"><button class="btn btn-header poison" id="poison">Poison</button></li>
-        <li class="nav-item"><button class="btn btn-header ground" id="ground">Ground</button></li>
-        <li class="nav-item"><button class="btn btn-header flying" id="flying">Flying</button></li>
-        <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psychic</button></li>
-        <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
-        <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
-        <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
-        <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
-        <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragon</button></li>
-        <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
-        <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
-    </ul>
-</nav>
-
-  
-
-  
   
   <script src="data.js" type="module"></script>
   <script src="main.js" type="module"></script>
