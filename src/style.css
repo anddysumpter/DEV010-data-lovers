@@ -61,6 +61,7 @@ h1 {
   flex: 1; /* El campo de entrada tomará el espacio disponible en el contenedor */
   margin-right: 5px;
   font-weight: bold; 
+  font-size:large;
 }
 
 /* Estilos para el botón de búsqueda */
@@ -79,8 +80,7 @@ h1 {
 
 :root {
   --clr-black: #1c1c1c;
-  --clr-gray: #ececec;
-  --clr-white: #f7f7f7;
+  
 
   --type-normal: #A8A878;
   --type-fire: #F08030;
@@ -159,9 +159,7 @@ h1 {
 .ice {background-image: url('img/cards/ice.jpg');}
 .steel {background-image: url('img/cards/steel.jpg');}
 
-.content-card {
-  background-size: cover;
-}
+
 
 
 
@@ -173,6 +171,7 @@ h1 {
   font-weight: bold;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  color: var(--clr-black);
 }
 
 .content-info {
@@ -183,6 +182,7 @@ h1 {
 .content-info .name-pokemon {
   text-align: center;
   font-size: 20px;
+  color: var(--clr-black);
 
 }
 
@@ -191,11 +191,13 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  color: var(--clr-black);
 }
 
 .type-pokemon img {
   width: 2.5rem;
   margin: 5px;
+  color: var(--clr-black);
 }
 
 
@@ -223,7 +225,6 @@ ul {
 }
 
 .btn-header {
-  background-color: var(--clr-gray);
   padding: .5rem;
   border-radius: 100vmax;
   cursor: pointer;
@@ -238,92 +239,100 @@ ul {
   box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
 }
 
-.normal {
+.type-button {
+  padding: 20px 30px; /* Espaciado interno del botón */
+  border: none;
+  background-color: transparent; /* Fondo inicialmente transparente */
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.normal-btn  {
   background-color: var(--type-normal);
   color: var(--clr-black);
 }
 
-.fire {
+.fire-btn  {
   background-color: var(--type-fire);
   color: var(--clr-black);
 }
 
-.water {
+.water-btn  {
   background-color: var(--type-water);
   color: var(--clr-white);
 }
 
-.grass {
+.grass-btn  {
   background-color: var(--type-grass);
   color: var(--clr-black);
 }
 
-.electric {
+.electric-btn  {
   background-color: var(--type-electric);
   color: var(--clr-black);
 }
 
-.ice {
+.ice-btn  {
   background-color: var(--type-ice);
   color: var(--clr-black);
 }
 
-.fighting {
+.fighting-btn  {
   background-color: var(--type-fighting);
   color: var(--clr-white);
 }
 
-.poison {
+.poison-btn  {
   background-color: var(--type-poison);
   color: var(--clr-white);
 }
 
-.ground {
+.ground-btn  {
   background-color: var(--type-ground);
   color: var(--clr-black);
 }
 
-.flying {
+.flying-btn  {
   background-color: var(--type-flying);
   color: var(--clr-black);
 }
 
-.psychic {
+.psychic-btn  {
   background-color: var(--type-psychic);
   color: var(--clr-black);
 }
 
-.bug {
+.bug-btn  {
   background-color: var(--type-bug);
   color: var(--clr-black);
 }
 
-.rock {
+.rock-btn  {
   background-color: var(--type-rock);
   color: var(--clr-black);
 }
 
-.ghost {
+.ghost-btn  {
   background-color: var(--type-ghost);
   color: var(--clr-white);
 }
 
-.dark {
+.dark-btn  {
   background-color: var(--type-dark);
   color: var(--clr-white);
 }
 
-.dragon {
+.dragon-btn  {
   background-color: var(--type-dragon);
   color: var(--clr-white);
 }
 
-.steel {
+.steel-btn  {
   background-color: var(--type-steel);
   color: var(--clr-black);
 }
 
-.fairy {
+.fairy-btn  {
   background-color: var(--type-fairy);
   color: var(--clr-black);
 }

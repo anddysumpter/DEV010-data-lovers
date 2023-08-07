@@ -8,7 +8,6 @@ contentModal.classList.add('content-modal');
 
 // Iconos por tipo de pokemon
 const TypePokemon = (arrayType) => {
-  const primaryType = arrayType[0]; // Obtenemos el primer tipo del array
   let imgEachPokemon = '';
   arrayType.forEach((typeElement) => {
     imgEachPokemon += `<img src="img/icons/${typeElement}.png" alt="type pokemon"/>`;
@@ -16,7 +15,8 @@ const TypePokemon = (arrayType) => {
   return `<div class="type-pokemon ${arrayType.join(' ')}">${imgEachPokemon}</div>`;
 };
 
-/* ------------------------------ ESTRUCTURA DEL CARDS POKEMON  -------------------------------------- */
+
+//CARDS POKEMON
 
 /// function para crear las cards Pokemon
 const pokemonList = (list) => {
@@ -47,7 +47,44 @@ const pokemonList = (list) => {
   });
 };
 
+const showModal = (dataPoke) => {
+  const sectionModal = document.createElement('div');
+  sectionModal.classList.add('modal');
+  sectionModal.innerHTML = `
+    <img src="img/cancelar.png" class="modal__close">
+    <div class="modal__container ${dataPoke.type[0]}">
+      <div class="modal__header">
+        <img src="${dataPoke.img}" class="modal__img">
+        <p class="modal__num">#${dataPoke.num}</p>
+        <p class="modal__title">${dataPoke.name}</p>
+        <p class="modal__paragraph">${dataPoke.about}</p>
+      </div>
+      <div class="modal__body">
+        <p class="modal__type"><img src="img/huevo.png"> Egg: ${dataPoke.egg} </p>
+        <p class="modal__height"><img src="img/medida.png"> Height:${dataPoke.size.height} </p>
+        <p class="modal__weight"><img src="img/peso.png"> Weight:${dataPoke.size.weight} </p>
+        <p class="modal__stast"><img src="img/moneda.png"> MAX-CP:${dataPoke.stats['max-cp']}</p>
+        <p class="modal__stast"><img src="img/mancuerna.png"> MAX-HP:${dataPoke.stats['max-hp']}</p>
+      </div>
+      <p class="modal__evolu">Evolution: </p>
+      <div class="modal__evolutions"></div>
+    </div>`;
+  contentModal.appendChild(sectionModal);
 
+  sectionModal.style.display = 'block';
+  
+ 
+  
+  const modalClose = document.querySelector('.modal__close');
+  window.addEventListener('click', (evento) => {
+    if (evento.target === modalClose) {
+      sectionModal.classList.remove('modal--show');
+      contentModal.innerHTML = '';
+    }
+  });
+
+  return sectionModal;
+};
 
 // Llamar a la función pokemonList con la data completa
 pokemonList(data.pokemon);
@@ -57,10 +94,10 @@ const filterByType = (type) => {
   const allPokemonCards = document.querySelectorAll('.content-principal');
 
   allPokemonCards.forEach((pokemonCard) => {
-    const types = Array.from(pokemonCard.classList); // Obtenemos las clases de tipo del Pokémon
+    const types = pokemonCard.classList; // Obtenemos las clases de tipo del Pokémon
 
     // Verificamos si el tipo seleccionado coincide con alguno de los tipos del Pokémon
-    const hasType = type === 'all' || types.includes(type);
+    const hasType = type === 'all' || Array.from(types).includes(type);
 
     if (hasType) {
       pokemonCard.style.display = 'block';
@@ -69,6 +106,7 @@ const filterByType = (type) => {
     }
   });
 };
+
 // Obtener referencias a los botones de tipo
 const btnAll = document.getElementById('view-all');
 const btnNormal = document.getElementById('normal');
