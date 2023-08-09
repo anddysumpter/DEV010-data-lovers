@@ -16,7 +16,7 @@ const TypePokemon = (arrayType) => {
 };
 
 
-//CARDS POKEMON
+/*Todo lo referente a CARDS POKEMON*/
 
 /// function para crear las cards Pokemon
 const pokemonList = (list) => {
@@ -51,7 +51,7 @@ const showModal = (dataPoke) => {
   const sectionModal = document.createElement('div');
   sectionModal.classList.add('modal');
   sectionModal.innerHTML = `
-    <img src="img/cancelar.png" class="modal__close">
+    <img src="img/modal/cancelar.png" class="modal__close">
     <div class="modal__container ${dataPoke.type[0]}">
       <div class="modal__header">
         <img src="${dataPoke.img}" class="modal__img">
@@ -60,11 +60,11 @@ const showModal = (dataPoke) => {
         <p class="modal__paragraph">${dataPoke.about}</p>
       </div>
       <div class="modal__body">
-        <p class="modal__type"><img src="img/huevo.png"> Egg: ${dataPoke.egg} </p>
-        <p class="modal__height"><img src="img/medida.png"> Height:${dataPoke.size.height} </p>
-        <p class="modal__weight"><img src="img/peso.png"> Weight:${dataPoke.size.weight} </p>
-        <p class="modal__stast"><img src="img/moneda.png"> MAX-CP:${dataPoke.stats['max-cp']}</p>
-        <p class="modal__stast"><img src="img/mancuerna.png"> MAX-HP:${dataPoke.stats['max-hp']}</p>
+        <p class="modal__type"><img src="img/modal/huevo.png"> Egg: ${dataPoke.egg} </p>
+        <p class="modal__height"><img src="img/modal/medida.png"> Height:${dataPoke.size.height} </p>
+        <p class="modal__weight"><img src="img/modal/peso.png"> Weight:${dataPoke.size.weight} </p>
+        <p class="modal__stast"><img src="img/modal/moneda.png"> MAX-CP:${dataPoke.stats['max-cp']}</p>
+        <p class="modal__stast"><img src="img/modal/mancuerna.png"> MAX-HP:${dataPoke.stats['max-hp']}</p>
       </div>
       <p class="modal__evolu">Evolution: </p>
       <div class="modal__evolutions"></div>
@@ -72,8 +72,7 @@ const showModal = (dataPoke) => {
   contentModal.appendChild(sectionModal);
 
   sectionModal.style.display = 'block';
-  
- 
+    
   
   const modalClose = document.querySelector('.modal__close');
   window.addEventListener('click', (evento) => {
@@ -82,7 +81,65 @@ const showModal = (dataPoke) => {
       contentModal.innerHTML = '';
     }
   });
-
+  // Evoluciones
+  // Mostrar información de evolución en la ventana modal
+  const evolutionsContainer = sectionModal.querySelector('.modal__evolutions');
+  const evolution = dataPoke.evolution;
+  
+  if (evolution['next-evolution']) {
+    evolution['next-evolution'].forEach(evo => {
+      evolutionsContainer.innerHTML += `
+        <div class="next-evolution">
+        <img src="https://www.serebii.net/pokemongo/pokemon/${evo.num}.png">
+        <p class="titulo">Next Evolution:</p>
+        <p>Num: ${evo.num}</p>
+        <p>Name: ${evo.name}</p>
+        
+        </div>`;
+  
+      if (evo['next-evolution']) {
+        evo['next-evolution'].forEach(ev => {
+          evolutionsContainer.innerHTML += `
+            <div class="next-evolution">
+            <img src="https://www.serebii.net/pokemongo/pokemon/${ev.num}.png">
+            <p class="titulo">Next Evolution:</p>
+            <p>Num: ${evo.num}</p>
+            <p>Name: ${evo.name}</p>
+            
+            </div>`;
+  
+        });//forEach
+      }
+  
+    });//forEach
+  
+  }
+  if (evolution['prev-evolution']) {
+    evolution['prev-evolution'].forEach(e => {
+      evolutionsContainer.innerHTML += `
+        <div class="prev-evolution">
+        <img src="https://www.serebii.net/pokemongo/pokemon/${e.num}.png">
+        <p class="titulo">Prev Evolution:</p>
+        <p>Num: ${e.num}</p>
+        <p>Name: ${e.name}</p>
+       </div>`;
+  
+      if (e['prev-evolution']) {
+        e['prev-evolution'].forEach(evol => {
+          evolutionsContainer.innerHTML += `
+            <div class="prev-evolution">
+            <img src="https://www.serebii.net/pokemongo/pokemon/${evol.num}.png">
+            <p class="titulo">Prev Evolution:</p>
+            <p>Num: ${evol.num}</p>
+            <p>Name: ${evol.name}</p>
+            </div>`;
+  
+        });//forEach
+      }
+  
+    });//forEach
+  }
+  
   return sectionModal;
 };
 
@@ -148,3 +205,6 @@ btnDark.addEventListener('click', () => filterByType('dark'));
 btnDragon.addEventListener('click', () => filterByType('dragon'));
 btnSteel.addEventListener('click', () => filterByType('steel'));
 btnFairy.addEventListener('click', () => filterByType('fairy'));
+
+
+
