@@ -1,12 +1,10 @@
 // Importar la data de los Pokémon
 import data from './data/pokemon/pokemon.js';
-import { filterCards } from './data/pokemon.js'; 
+
 // Obtener referencias a los elementos del DOM
 const root = document.getElementById('root');
 const contentModal = document.createElement('section');
 contentModal.classList.add('content-modal');
-const searchInput = document.getElementById('search-input');
-
 
 // Iconos por tipo de pokemon
 const TypePokemon = (arrayType) => {
@@ -144,43 +142,6 @@ const showModal = (dataPoke) => {
   
   return sectionModal;
 };
-
-searchInput.addEventListener('keyup', (event) => {
-  if (event.key === 'Enter') {
-    const searchValue = searchInput.value.trim().toLowerCase();
-
-    // Filtrar los Pokémon por nombre usando la función filterCards
-    const filteredPokemon = filterCards(data.pokemon, searchValue);
-
-    // Obtener referencia al elemento donde se mostrará la información del Pokémon
-    const pokemonInfoContainer = document.getElementById('pokemon-info');
-
-    // Limpiar contenido previo
-    pokemonInfoContainer.innerHTML = '';
-
-    if (filteredPokemon.length > 0) {
-      // Mostrar información del Pokémon encontrado
-      const foundPokemon = filteredPokemon[0];
-      const pokemonInfo = `
-        <div class="pokemon-details">
-          <h2>${foundPokemon.name}</h2>
-          <img src="${foundPokemon.img}" alt="${foundPokemon.name}">
-          <p>${foundPokemon.about}</p>
-        </div>
-      `;
-      pokemonInfoContainer.innerHTML = pokemonInfo;
-    } else {
-      // Mostrar imagen y mensaje de "Pokemon not found"
-      const notFoundInfo = `
-        <div class="not-found">
-          <img src="notfound.jpg" alt="Pokemon Not Found">
-          <p>Pokemon not found</p>
-        </div>
-      `;
-      pokemonInfoContainer.innerHTML = notFoundInfo;
-    }
-  }
-});
 
 // Llamar a la función pokemonList con la data completa
 pokemonList(data.pokemon);
