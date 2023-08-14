@@ -1,3 +1,13 @@
+//Inicio de la funcion filtrar por busqueda de nombre del pokemon
+export const filterCards = (arrayPokemon, input) => {
+  return arrayPokemon.filter(elemento => elemento.name.startsWith(input.toLowerCase()));
+};
+
+
+
+
+
+
 export const getPokemonByType = (arrayOfSelectedPokemonType, pokemonList) => {
   let pokemonFilteredList = null;
   

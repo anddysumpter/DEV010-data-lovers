@@ -125,6 +125,7 @@ h1 {
   height: 220px;
   margin: 50px;
   display: none;
+  
 
   background-size: cover;
   border-radius: 30px;
@@ -432,9 +433,11 @@ ul {
 
 .modal__container {
   overflow-x: auto;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   margin: auto;
-  width: 400px;
+  width: 450px;
   max-height: -webkit-fill-available;
   border-radius: 6px;
   padding: 1em 1em;
@@ -472,7 +475,8 @@ ul {
 .modal__img {
   max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
   max-height: 150px; /* Ajusta el tamaño máximo de la imagen */
-  margin: 10px 0; /* Ajusta el espacio vertical */
+  margin: 100px auto 10px; /* Ajusta los valores aquí */
+  display: block;
 }
 .modal__num {
   font-size: 18px;
@@ -486,57 +490,36 @@ ul {
   margin: 10px 0; /* Ajusta el espacio vertical */
 }
 .modal__paragraph{
-  margin-bottom: 10px;
+  margin: 0 auto 10px; /* Ajusta los márgenes */
   font-size: 12px;
-  width: 100%;
+  width: 80%;
+  text-align: center; /* Centra el texto horizontalmente */
 }
-.modal__body{
- /* background-color: #1391CC;*/
-  width: 100%;
-  /*background-color: var(--color-type);*/
-  border-radius: 0px 0px 8px 8px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+.modal__body {
+  text-align: center; /* Centra todo el contenido horizontalmente */
 }
 
-.modal__type{
+.modal__type,
+.modal__height,
+.modal__weight,
+.modal__stast {
   font-size: 14px;
   margin: 2px;
   padding: 2px;
   background-color: var(--color-search);
   border-radius: 7px;
+  display: inline-block; /* Alinear los elementos en línea */
 }
-.modal__height{
-  font-size: 14px;
-  margin: 2px;
-  padding: 2px;
-  background-color: var(--color-search);
-  border-radius: 7px;
-}
-.modal__weight{
-  font-size: 14px;
-  margin: 2px;
-  padding: 2px;
-  background-color: var(--color-search);
-  border-radius: 7px;
 
-}
-.modal__stast{
-  font-size: 14px;
-  margin: 2px;
-  padding: 5px;
-  background-color: var(--color-search);
-  border-radius: 7px;
-
+.modal__stast {
+  margin-bottom: 10px; /* Añadir un margen inferior para separar del siguiente bloque */
 }
 .modal__evolu{
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 4px;
-  margin-top: 10px; 
+  margin-top: 5px;
+  
 }
 .modal__evolutions{
   margin: 0;
@@ -544,26 +527,34 @@ ul {
   width: 100%;
   display: flex;
   flex-direction: row; /* Cambio la dirección a fila (row) */
-  justify-content: space-between; /* Agrego espacio entre las dos secciones */
+  justify-content: space-between; 
+   /* Centra horizontalmente */
+  align-items: center; /* Agrego espacio entre las dos secciones */
   flex-wrap: wrap;
 }
 .next-evolution,
 .prev-evolution {
   width: calc(50% - 15px); /* Divide el espacio en dos columnas con margen */
-  padding: 10px 15px; /* Ajusta el espaciado interno */
+  /* Ajusta el espaciado interno */
   box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
+  margin-bottom: 90px; /* Puedes ajustar este valor según tu preferencia */
+  
+  padding: 10px 15px;
+  box-sizing: border-box;
+  text-align: center;
 }
 .modal__evolutions img{
   width: 100px;
-  margin-bottom: 5px;
+  margin-top: 0px;;
 }
 .modal__evolutions .titulo{
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 30px;
 }
 
 .modal__evolutions p{
  font-size: 11px;
- margin: 2px 0; 
+ margin: 0; 
+ margin-bottom: 20px;
 }
