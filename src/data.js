@@ -26,3 +26,17 @@ export const getPokemonByType = (arrayOfSelectedPokemonType, pokemonList) => {
   
   return pokemonFilteredList;
 };
+
+export const getPokemonUniqueType = (pokemonList) => {
+  const uniqueTypes = [];
+
+  pokemonList.forEach((pokemon) => {
+    pokemon.type.forEach((type) => {
+      if (!uniqueTypes.some((arr) => arr.includes(type))) {
+        uniqueTypes.push(pokemon.type);
+      }
+    });
+  });
+
+  return uniqueTypes;
+};

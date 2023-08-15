@@ -163,7 +163,7 @@ h2.type-text {
 #root {
 
   background-color: var(--color-root);
-  padding: 35px;
+  padding: 5px;
   width: 100%;
   /*height: 100vh;*/
   max-width: 1200px;

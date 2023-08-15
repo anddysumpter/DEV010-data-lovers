@@ -8,10 +8,11 @@ const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const originalPokemonList = data.pokemon.slice();
 
+const showAllPokemon = () => {
+  pokemonList(originalPokemonList);
+};
 
-document.getElementById('refresh-button').addEventListener('click', function() {
-  location.reload();
-});
+
 
 const TypePokemon = (arrayType) => {
   let imgEachPokemon = '';
@@ -189,56 +190,62 @@ const filterByType = (type) => {
   });
 };
 
-
-
-const btnAll = document.getElementById('view-all');
-const btnNormal = document.getElementById('normal');
-const btnFire = document.getElementById('fire');
-const btnWater = document.getElementById('water');
-const btnGrass = document.getElementById('grass');
-const btnElectric = document.getElementById('electric');
-const btnIce = document.getElementById('ice');
-const btnFighting = document.getElementById('fighting');
-const btnPoison = document.getElementById('poison');
-const btnGround = document.getElementById('ground');
-const btnFlying = document.getElementById('flying');
-const btnPsychic = document.getElementById('psychic');
-const btnBug = document.getElementById('bug');
-const btnRock = document.getElementById('rock');
-const btnGhost = document.getElementById('ghost');
-const btnDark = document.getElementById('dark');
-const btnDragon = document.getElementById('dragon');
-const btnSteel = document.getElementById('steel');
-const btnFairy = document.getElementById('fairy');
-
-searchButton.addEventListener('click', () => {
-  applyNameFilter(); // Llama a la función para filtrar por nombre
-  filterByType('all'); // Mostrar todos los tipos de Pokémon
+document.getElementById('refresh-button').addEventListener('click', function() {
+  showAllPokemon(); // Muestra todos los Pokémon al hacer clic en Reload
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  showAllPokemon(); 
+  const btnAll = document.getElementById('view-all');
+  const btnNormal = document.getElementById('normal');
+  const btnFire = document.getElementById('fire');
+  const btnWater = document.getElementById('water');
+  const btnGrass = document.getElementById('grass');
+  const btnElectric = document.getElementById('electric');
+  const btnIce = document.getElementById('ice');
+  const btnFighting = document.getElementById('fighting');
+  const btnPoison = document.getElementById('poison');
+  const btnGround = document.getElementById('ground');
+  const btnFlying = document.getElementById('flying');
+  const btnPsychic = document.getElementById('psychic');
+  const btnBug = document.getElementById('bug');
+  const btnRock = document.getElementById('rock');
+  const btnGhost = document.getElementById('ghost');
+  const btnDark = document.getElementById('dark');
+  const btnDragon = document.getElementById('dragon');
+  const btnSteel = document.getElementById('steel');
+  const btnFairy = document.getElementById('fairy');
+
+  // Agregar event listener a los botones de tipo para filtrar por tipo
+  btnAll.addEventListener('click', () => filterByType('all'));  
+  btnNormal.addEventListener('click', () => filterByType('normal'));
+  btnFire.addEventListener('click', () => filterByType('fire'));
+  btnWater.addEventListener('click', () => filterByType('water'));
+  btnGrass.addEventListener('click', () => filterByType('grass'));
+  btnElectric.addEventListener('click', () => filterByType('electric'));
+  btnIce.addEventListener('click', () => filterByType('ice'));
+  btnFighting.addEventListener('click', () => filterByType('fighting'));
+  btnPoison.addEventListener('click', () => filterByType('poison'));
+  btnGround.addEventListener('click', () => filterByType('ground'));
+  btnFlying.addEventListener('click', () => filterByType('flying'));
+  btnPsychic.addEventListener('click', () => filterByType('psychic'));
+  btnBug.addEventListener('click', () => filterByType('bug'));
+  btnRock.addEventListener('click', () => filterByType('rock'));
+  btnGhost.addEventListener('click', () => filterByType('ghost'));
+  btnDark.addEventListener('click', () => filterByType('dark'));
+  btnDragon.addEventListener('click', () => filterByType('dragon'));
+  btnSteel.addEventListener('click', () => filterByType('steel'));
+  btnFairy.addEventListener('click', () => filterByType('fairy'));
+
+  searchButton.addEventListener('click', () => {
+    applyNameFilter(); // Llama a la función para filtrar por nombre
+    filterByType('all'); // Mostrar todos los tipos de Pokémon
+  });
 
 
-// Llamar a la función pokemonList con la data completa
-pokemonList(data.pokemon);
+  // Llamar a la función pokemonList con la data completa
+  pokemonList(data.pokemon);
 
-// Agregar event listener a los botones de tipo para filtrar por tipo
-btnAll.addEventListener('click', () => filterByType('all'));
-btnNormal.addEventListener('click', () => filterByType('normal'));
-btnFire.addEventListener('click', () => filterByType('fire'));
-btnWater.addEventListener('click', () => filterByType('water'));
-btnGrass.addEventListener('click', () => filterByType('grass'));
-btnElectric.addEventListener('click', () => filterByType('electric'));
-btnIce.addEventListener('click', () => filterByType('ice'));
-btnFighting.addEventListener('click', () => filterByType('fighting'));
-btnPoison.addEventListener('click', () => filterByType('poison'));
-btnGround.addEventListener('click', () => filterByType('ground'));
-btnFlying.addEventListener('click', () => filterByType('flying'));
-btnPsychic.addEventListener('click', () => filterByType('psychic'));
-btnBug.addEventListener('click', () => filterByType('bug'));
-btnRock.addEventListener('click', () => filterByType('rock'));
-btnGhost.addEventListener('click', () => filterByType('ghost'));
-btnDark.addEventListener('click', () => filterByType('dark'));
-btnDragon.addEventListener('click', () => filterByType('dragon'));
-btnSteel.addEventListener('click', () => filterByType('steel'));
-btnFairy.addEventListener('click', () => filterByType('fairy'));
+  showAllPokemon();
 
+});
