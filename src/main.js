@@ -1,12 +1,14 @@
-// Importar la data de los Pokémon
 import data from './data/pokemon/pokemon.js';
-
+import { filterCards, } from './data.js';
 // Obtener referencias a los elementos del DOM
 const root = document.getElementById('root');
 const contentModal = document.createElement('section');
 contentModal.classList.add('content-modal');
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search-input');
+const originalPokemonList = data.pokemon.slice();
 
-// Iconos por tipo de pokemon
+
 const TypePokemon = (arrayType) => {
   let imgEachPokemon = '';
   arrayType.forEach((typeElement) => {
@@ -15,16 +17,13 @@ const TypePokemon = (arrayType) => {
   return `<div class="type-pokemon ${arrayType.join(' ')}">${imgEachPokemon}</div>`;
 };
 
-
-/*Todo lo referente a CARDS POKEMON*/
-
-/// function para crear las cards Pokemon
 const pokemonList = (list) => {
+  root.innerHTML = ''; // Limpia el contenido actual
+
   list.forEach(pokemon => {
     const content = document.createElement("div");
     content.classList.add("content-principal");
 
-    // Modificación para considerar solo el primer tipo si el Pokémon tiene dos tipos
     const firstType = pokemon.type[0];
     content.classList.add(firstType);
 
@@ -142,18 +141,40 @@ const showModal = (dataPoke) => {
   
   return sectionModal;
 };
+// Función para mostrar mensaje de error
+const showErrorMessage = () => {
+  root.innerHTML = '';
+  const divError = document.createElement('div');
+  divError.classList.add('content-error');
+  const parrafo = document.createElement('p');
+  const imgError = document.createElement('img');
+  imgError.src = 'img/modal/notfound.JPG';
+  divError.appendChild(parrafo);
+  divError.appendChild(imgError);
+  root.appendChild(divError);
+};
 
-// Llamar a la función pokemonList con la data completa
-pokemonList(data.pokemon);
+const showSearchResults = (results) => {
+  root.innerHTML = ''; // Borra el contenido actual
+  if (results.length === 0) {
+    showErrorMessage();
+  } else {
+    pokemonList(results);
+  }
+};
+const applyNameFilter = () => {
+  const searchValue = searchInput.value.trim().toLowerCase();
+  const filteredPokemonByName = filterCards(originalPokemonList, searchValue);
+  showSearchResults(filteredPokemonByName);
+};
 
-// Función para filtrar y mostrar los Pokémon
+// Función para filtrar y mostrar Pokémon por tipo
 const filterByType = (type) => {
   const allPokemonCards = document.querySelectorAll('.content-principal');
 
   allPokemonCards.forEach((pokemonCard) => {
-    const types = pokemonCard.classList; // Obtenemos las clases de tipo del Pokémon
+    const types = pokemonCard.classList;
 
-    // Verificamos si el tipo seleccionado coincide con alguno de los tipos del Pokémon
     const hasType = type === 'all' || Array.from(types).includes(type);
 
     if (hasType) {
@@ -164,7 +185,8 @@ const filterByType = (type) => {
   });
 };
 
-// Obtener referencias a los botones de tipo
+
+
 const btnAll = document.getElementById('view-all');
 const btnNormal = document.getElementById('normal');
 const btnFire = document.getElementById('fire');
@@ -184,6 +206,21 @@ const btnDark = document.getElementById('dark');
 const btnDragon = document.getElementById('dragon');
 const btnSteel = document.getElementById('steel');
 const btnFairy = document.getElementById('fairy');
+
+searchButton.addEventListener('click', () => {
+  applyNameFilter(); // Llama a la función para filtrar por nombre
+  filterByType('all'); // Mostrar todos los tipos de Pokémon
+});
+
+// Agregar event listener al campo de búsqueda
+searchInput.addEventListener('input', () => {
+  applyNameFilter(); // Llama a la función para filtrar por nombre
+  filterByType('all'); // Mostrar todos los tipos de Pokémon
+});
+
+
+// Llamar a la función pokemonList con la data completa
+pokemonList(data.pokemon);
 
 // Agregar event listener a los botones de tipo para filtrar por tipo
 btnAll.addEventListener('click', () => filterByType('all'));
@@ -205,6 +242,4 @@ btnDark.addEventListener('click', () => filterByType('dark'));
 btnDragon.addEventListener('click', () => filterByType('dragon'));
 btnSteel.addEventListener('click', () => filterByType('steel'));
 btnFairy.addEventListener('click', () => filterByType('fairy'));
-
-
 
