@@ -9,6 +9,10 @@ const searchInput = document.getElementById('search-input');
 const originalPokemonList = data.pokemon.slice();
 
 
+document.getElementById('refresh-button').addEventListener('click', function() {
+  location.reload();
+});
+
 const TypePokemon = (arrayType) => {
   let imgEachPokemon = '';
   arrayType.forEach((typeElement) => {
@@ -212,11 +216,6 @@ searchButton.addEventListener('click', () => {
   filterByType('all'); // Mostrar todos los tipos de Pokémon
 });
 
-// Agregar event listener al campo de búsqueda
-searchInput.addEventListener('input', () => {
-  applyNameFilter(); // Llama a la función para filtrar por nombre
-  filterByType('all'); // Mostrar todos los tipos de Pokémon
-});
 
 
 // Llamar a la función pokemonList con la data completa
