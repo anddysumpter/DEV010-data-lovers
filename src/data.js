@@ -7,12 +7,12 @@ export const filterCards = (arrayPokemon, input) => {
 
 
 
-
 export const getPokemonByType = (arrayOfSelectedPokemonType, pokemonList) => {
   let pokemonFilteredList = null;
   
   for (let indexCondition = 0; indexCondition < arrayOfSelectedPokemonType.length; indexCondition++) {
-    pokemonFilteredList = pokemonList.filter(function (objeto) { 
+    const filteredListCopy = pokemonList.slice(); // Crea una copia del array
+    pokemonFilteredList = filteredListCopy.filter(function (objeto) { 
       const objetoConsultado = objeto.type.some(function (item) {
         if (item.indexOf(arrayOfSelectedPokemonType[indexCondition]) >= 0) {
           return true;
@@ -27,16 +27,18 @@ export const getPokemonByType = (arrayOfSelectedPokemonType, pokemonList) => {
   return pokemonFilteredList;
 };
 
-export const getPokemonUniqueType = (pokemonList) => {
-  const uniqueTypes = [];
 
-  pokemonList.forEach((pokemon) => {
-    pokemon.type.forEach((type) => {
-      if (!uniqueTypes.some((arr) => arr.includes(type))) {
-        uniqueTypes.push(pokemon.type);
-      }
-    });
+export function getPokemonUniqueType(pokemonList) {
+  const arrayOfUniquePokemonType = [];
+  const arrayOfFlagsPokemonType = [];
+
+  pokemonList.forEach(pokemon => {
+    const sortedTypes = [...pokemon.type].sort().join();
+    if (!arrayOfFlagsPokemonType.includes(sortedTypes)) {
+      arrayOfFlagsPokemonType.push(sortedTypes);
+      arrayOfUniquePokemonType.push([...pokemon.type].sort());
+    }
   });
 
-  return uniqueTypes;
-};
+  return arrayOfUniquePokemonType;
+}

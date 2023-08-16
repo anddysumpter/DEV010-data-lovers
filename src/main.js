@@ -7,10 +7,18 @@ contentModal.classList.add('content-modal');
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const originalPokemonList = data.pokemon.slice();
+const refreshButton = document.getElementById("refresh-button");
 
 const showAllPokemon = () => {
   pokemonList(originalPokemonList);
 };
+
+refreshButton.addEventListener("click", () => {
+  // Borra el contenido del campo de entrada
+  searchInput.value = "";
+  // Recarga la página
+  location.reload();
+});
 
 
 
@@ -29,11 +37,15 @@ const pokemonList = (list) => {
     const content = document.createElement("div");
     content.classList.add("content-principal");
 
-    const firstType = pokemon.type[0];
-    content.classList.add(firstType);
+    // Agrega todas las clases de tipo del Pokémon
+    pokemon.type.forEach(type => {
+      content.classList.add(type);
+    });
+
+    const primaryType = pokemon.type[0]; // Obtén el primer tipo del Pokémon
 
     content.innerHTML = `
-      <div class="container-cards content-card">
+      <div class="container-cards content-card" style="background-image: url('img/cards/${primaryType}.jpg');">
         <p class="num-pokemon">${pokemon.num}</p>
         <img src="${pokemon.img}">
         <div class="content-info">
@@ -41,6 +53,7 @@ const pokemonList = (list) => {
           <div class="type-pokemon">${TypePokemon(pokemon.type)}</div>
         </div>
       </div>`;
+
     content.addEventListener('click', () => {
       const viewModal = showModal(pokemon);
       viewModal.classList.add('modal--show');
@@ -180,6 +193,7 @@ const filterByType = (type) => {
   allPokemonCards.forEach((pokemonCard) => {
     const types = pokemonCard.classList;
 
+    // Verifica si alguno de los tipos del Pokémon coincide con el tipo seleccionado
     const hasType = type === 'all' || Array.from(types).includes(type);
 
     if (hasType) {

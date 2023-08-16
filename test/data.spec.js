@@ -77,22 +77,34 @@ const objPokemon = [{
 ];
 
 describe('filterCards', () => {
-  it('debería retornar la data del pokemon según el input', () => {
+  it('deberia retornar la data del pokemon segun el input', () => {
     const result = filterCards(objPokemon, "bul");
     expect(result[0].name).toEqual("bulbasaur");
   });
 });
 
 describe('getPokemonByType', () => {
-  it('debería retornar el tipo de pokemon seleccionado en el botón', () => {
-    const grassPokemons = getPokemonByType(["grass"], objPokemon);
-    expect(grassPokemons[0].type).toContain("grass");
+  it('deberia retornar los tipos de los Pokémon según el botón seleccionado', () => {
+    const grassTypePokemons = getPokemonByType("grass", objPokemon);
+    const fireTypePokemons = getPokemonByType("fire", objPokemon);
+    const waterTypePokemons = getPokemonByType("water", objPokemon);
+
+    expect(grassTypePokemons[0].type).toEqual(["grass", "poison"]);
+    expect(fireTypePokemons[0].type).toEqual(["fire"]);
+    expect(waterTypePokemons[0].type).toEqual(["water"]);
   });
 });
 
 describe('getPokemonUniqueType', () => {
-  it('debería retornar un arreglo con las combinaciones únicas de tipos encontradas', () => {
-    const uniqueTypes = getPokemonUniqueType(objPokemon);
-    expect(uniqueTypes).toEqual([["grass", "poison"], ["fire"], ["water"] /* ... y así sucesivamente */]);
+  it('deberia retornar un arreglo con las combinaciones únicas de tipos encontradas', () => {
+    const pokemonList = [
+      { name: 'blastoise', type: ['water'] },
+      { name: 'dewgong', type: ['ice', 'water'] },
+      { name: 'starmie', type: ['water', 'psychic'] },
+      { name: 'poliwag', type: ['water'] },
+      { name: 'slowbro', type: ['psychic', 'water'] },
+    ];
+
+    expect(getPokemonUniqueType(pokemonList)).toEqual([['water'], ['ice', 'water'], ['psychic', 'water']]);
   });
 });

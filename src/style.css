@@ -394,6 +394,13 @@ ul {
   background-color: var(--type-fairy);
   color: var(--clr-black);
 }
+
+.container-cards {
+  background-size: cover; /* Ajusta el tamaño del fondo para cubrir todo el contenedor */
+  background-position: center;
+  border: 1px solid #ccc; /* Centra el fondo en el contenedor */
+  /* Resto de tus estilos para .container-cards */
+}
 /* Estilos para las tarjetas de los Pokémon */
 .pokemon-card {
   border: 1px solid #ccc;
@@ -442,26 +449,84 @@ ul {
   height: 20px;
 }
 
-/* Ajustar estilos para dispositivos móviles (opcional) */
-@media screen and (max-width: 768px) {
-  .content-principal {
-    width: calc(33.3333% - 60px);
-  }
+@media screen and (min-width: 280px) and (max-width: 390px) {
+    .modal__title {
+        font-size: 14px;
+    }
+    .modal__paragraph {
+        font-size: 11px;
+    }
+    .content-img img {
+        width: 90px;
+        margin: 5px;
+    }
+    .num-pokemon {
+        padding-left: 20px;
+        margin-top: 26px;
+    }
+    .content-search {
+        width: 100%;
+    }
+    #divPokemonType {
+        width: 100%;
+        flex-wrap: wrap;
+        
+    }
+    canvas {
+        padding: 5px;
+    }
+    .show .btn-scroll {
+        width: 50px;
+    }
 }
 
-/* Ajustar estilos para dispositivos móviles (opcional) */
-@media screen and (max-width: 768px) {
-  .search-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
+@media screen and (min-width: 400px) and  (max-width: 600px) {
 
-  .search-container input {
-    margin-bottom: 10px;
-  }
+    .modal__title{
+        font-size: 16px;
+    }
+    .modal__paragraph{
+        font-size: 11px;
+    }
+    .content-search {
+        width: 100%;
+    }
+    #divPokemonType {
+        flex-wrap: wrap;
+        padding: 20px;
+    }
 }
 
+@media (max-width:768px) {
+    .content-search {
+        flex-direction: column;
+        width: 100%;
+    }
+    .modal__container{
+        margin: 20px auto;
+        height: auto;
+    }
+    .content-principal {
+      width: calc(33.3333% - 20px); /* Ajusta el ancho de las tarjetas */
+      height: 180px; /* Ajusta la altura de las tarjetas */
+      margin: 20px; /* Ajusta el margen entre las tarjetas */
+    }
+  
+    .name-pokemon {
+      font-size: 18px; /* Ajusta el tamaño del nombre del Pokémon */
+    }
+  
+    .type-pokemon {
+      font-size: 14px; /* Ajusta el tamaño de los tipos de Pokémon */
+    }
+  }
 
+@media (max-width:1200px) {
+    .modal__container{
+        margin: 20px auto;
+    }
+   
+}
 .modal{
   position: fixed;
   top: 0;
