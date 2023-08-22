@@ -1,6 +1,6 @@
 # Data Lovers
 
-![Alt text](src/img/modal/Banner.JPG)
+![Alt text](src/img/modal/banner.JPG)
 
 
 # PokemonSearch: Documentación del Proyecto
@@ -66,7 +66,7 @@ PokemonSearch no solo se trata de una herramienta para buscar y filtrar Pokémon
 ### Prototipo de baja fidelidad
 * Al momento de hacer el prototipo de baja fidelidad deseaba hacer un acomodo en lo cual primero saliera un banner con el titulo de la pagina seguida con un buscador y posteriormente con botones donde se vieran los tipos de cada pokemon, para despues abajo de todo salieran las cartas de pokemon desplegadas de manera ordenada y centrica.
 
-![Alt text](src/img/modal/bajafidelidad.JPG)
+![Alt text](src/img/modal/bajafidelidad.jpeg)
 
 ### Prototipo de alta fidelidad  version 1
 
